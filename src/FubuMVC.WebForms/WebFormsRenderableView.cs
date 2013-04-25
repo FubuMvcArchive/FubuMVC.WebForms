@@ -19,6 +19,7 @@ namespace FubuMVC.WebForms
             _renderer = renderer;
             _control = control;
             _inner = (IFubuPage)_control;
+            Page = _inner;
         }
 
         public string ElementPrefix
@@ -57,5 +58,7 @@ namespace FubuMVC.WebForms
         {
             _renderer.RenderControl(_control);
         }
+
+        public IFubuPage Page { get; private set; }
     }
 }

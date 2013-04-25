@@ -12,9 +12,9 @@ namespace FubuMVC.WebForms
         private readonly ViewPath _path;
         private readonly IWebFormsControlBuilder _builder;
         private readonly IWebFormRenderer _renderer;
-        private readonly IPageActivator _activator;
+        private readonly IFubuPageActivator _activator;
 
-        public RenderFubuWebFormView(ViewPath path, IWebFormsControlBuilder builder, IWebFormRenderer renderer, IPageActivator activator)
+        public RenderFubuWebFormView(ViewPath path, IWebFormsControlBuilder builder, IWebFormRenderer renderer, IFubuPageActivator activator)
             : base(PartialBehavior.Executes)
         {
             _path = path;

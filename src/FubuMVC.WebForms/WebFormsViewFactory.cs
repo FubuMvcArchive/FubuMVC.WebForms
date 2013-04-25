@@ -1,3 +1,4 @@
+using FubuCore.Descriptions;
 using FubuMVC.Core.View;
 using FubuMVC.Core.View.Activation;
 using FubuMVC.Core.View.Rendering;
@@ -8,10 +9,10 @@ namespace FubuMVC.WebForms
     {
         private readonly IWebFormsControlBuilder _builder;
         private readonly IWebFormRenderer _renderer;
-        private readonly IPageActivator _activator;
+        private readonly IFubuPageActivator _activator;
         private readonly string _viewName;
 
-        public WebFormsViewFactory(IWebFormsControlBuilder builder, IWebFormRenderer renderer, IPageActivator activator)
+        public WebFormsViewFactory(IWebFormsControlBuilder builder, IWebFormRenderer renderer, IFubuPageActivator activator)
         {
             _builder = builder;
             _renderer = renderer;
@@ -32,6 +33,12 @@ namespace FubuMVC.WebForms
         public IRenderableView GetPartialView()
         {
             return GetView();
+        }
+
+        public void Describe(Description description)
+        {
+            description.Title = "FubuMVC.WebForms";
+            description.ShortDescription = "Adds webform support to fubumvc";
         }
     }
 }

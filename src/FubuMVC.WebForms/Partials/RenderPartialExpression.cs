@@ -9,8 +9,7 @@ using FubuCore.Reflection;
 using FubuMVC.Core;
 using FubuMVC.Core.Runtime;
 using FubuMVC.Core.Security;
-using FubuMVC.Core.UI.Configuration;
-using FubuMVC.Core.UI.Tags;
+using FubuMVC.Core.UI.Elements;
 using FubuMVC.Core.View;
 
 namespace FubuMVC.WebForms.Partials
@@ -22,7 +21,7 @@ namespace FubuMVC.WebForms.Partials
         private string _prefix;
         private readonly TViewModel _model;
         private readonly IPartialRenderer _renderer;
-        private readonly ITagGenerator<TViewModel> _tagGenerator;
+        private readonly IElementGenerator<TViewModel> _tagGenerator;
         private readonly IEndpointService _endpointService;
         private IFubuPage _partialView;
         private bool _shouldDisplay = true;
@@ -34,7 +33,7 @@ namespace FubuMVC.WebForms.Partials
 
 
 
-        public RenderPartialExpression(TViewModel model, IFubuPage parentPage, IPartialRenderer renderer, ITagGenerator<TViewModel> tagGenerator, IEndpointService endpointService)
+        public RenderPartialExpression(TViewModel model, IFubuPage parentPage, IPartialRenderer renderer, IElementGenerator<TViewModel> tagGenerator, IEndpointService endpointService)
         {
             if (tagGenerator == null) throw new ArgumentNullException("tagGenerator");
 
@@ -182,17 +181,12 @@ namespace FubuMVC.WebForms.Partials
 
         private ElementRequest elementRequest()
         {
-            return _tagGenerator.GetRequest(_accessor);
+            return new ElementRequest(_accessor);
         }
 
         private void renderMultiplePartials<TPartialViewModel>(StringBuilder builder, IEnumerable<TPartialViewModel> list) 
             where TPartialViewModel : class
         {
-            if (shouldRenderListWrapper())
-            {
-                var before = _tagGenerator.BeforePartial(elementRequest());
-                builder.Append(before);
-            }
 
 
             var render_multiple_count = list.Count();
@@ -200,28 +194,12 @@ namespace FubuMVC.WebForms.Partials
 
             list.Each(m =>
             {
-                if (shouldRenderItemWrapper())
-                {
-                    var beforeEach = _tagGenerator.BeforeEachofPartial(elementRequest(), current, render_multiple_count);
-                    builder.Append(beforeEach);
-                }
 
                 var output = _renderer.Render<TPartialViewModel>(_partialView, m, _prefix, current);
                 builder.Append(output);
-
-                if (shouldRenderItemWrapper())
-                {
-                    var afterEach = _tagGenerator.AfterEachofPartial(elementRequest(), current, render_multiple_count);
-                    builder.Append(afterEach);
-                }
                 current++;
             });
 
-            if (shouldRenderListWrapper())
-            {
-                var after = _tagGenerator.AfterPartial(elementRequest());
-                builder.Append(after);
-            }
         }
 
         public override string ToString()

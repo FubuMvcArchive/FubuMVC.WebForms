@@ -25,10 +25,10 @@ namespace FubuMVC.WebForms
     public class PartialRenderer : IPartialRenderer
     {
         private readonly IWebFormsControlBuilder _builder;
-        private readonly IPageActivator _activator;
+        private readonly IFubuPageActivator _activator;
         private readonly IFubuRequest _request;
 
-        public PartialRenderer(IWebFormsControlBuilder builder, IPageActivator activator, IFubuRequest request)
+        public PartialRenderer(IWebFormsControlBuilder builder, IFubuPageActivator activator, IFubuRequest request)
         {
             _builder = builder;
             _activator = activator;

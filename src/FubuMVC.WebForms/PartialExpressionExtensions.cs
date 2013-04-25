@@ -4,9 +4,10 @@ using System.Linq.Expressions;
 using FubuCore.Reflection;
 using FubuMVC.Core;
 using FubuMVC.Core.UI;
-using FubuMVC.Core.UI.Tags;
+using FubuMVC.Core.UI.Elements;
 using FubuMVC.Core.View;
 using FubuMVC.WebForms.Partials;
+using HtmlTags.Conventions;
 
 namespace FubuMVC.WebForms
 {
@@ -62,7 +63,7 @@ namespace FubuMVC.WebForms
             this IFubuPage page, IEnumerable<T> items) where T : class
         {
             var renderer = page.Get<IPartialRenderer>();
-            return new RenderPartialExpression<T>(null, page, renderer, page.Get<ITagGenerator<T>>(), page.Get<IEndpointService>()).ForEachOf(items);
+            return new RenderPartialExpression<T>(null, page, renderer, page.Get<IElementGenerator<T>>(), page.Get<IEndpointService>()).ForEachOf(items);
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace FubuMVC.WebForms
         {
             var renderer = viewPage.Get<IPartialRenderer>();
             return
-                new RenderPartialExpression<TViewModel>(model, viewPage, renderer, viewPage.Tags<TViewModel>(), viewPage.Get<IEndpointService>()).For(
+                new RenderPartialExpression<TViewModel>(model, viewPage, renderer, viewPage.Get<IElementGenerator<TViewModel>>(), viewPage.Get<IEndpointService>()).For(
                     model);
         }
 

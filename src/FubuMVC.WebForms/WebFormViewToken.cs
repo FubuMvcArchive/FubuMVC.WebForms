@@ -44,6 +44,8 @@ namespace FubuMVC.WebForms
             get { return ViewType.Namespace; } 
         }
 
+        public string ProfileName { get; set; }
+
         public override string ToString()
         {
             return ViewType.ToVirtualPath();

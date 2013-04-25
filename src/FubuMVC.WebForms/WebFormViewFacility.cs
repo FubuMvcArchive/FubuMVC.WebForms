@@ -26,5 +26,18 @@ namespace FubuMVC.WebForms
         {
             return type.CanBeCastTo<UserControl>();
         }
+
+        public IEnumerable<IViewToken> FindViews(BehaviorGraph graph)
+        {
+            var search = new FileSet() { DeepSearch = true };
+
+            search.AppendInclude("*aspx");
+            search.AppendInclude("*Master");
+            search.AppendInclude("*ascx");
+            search.AppendExclude("bin/*.*");
+            search.AppendInclude("obj/*.*");
+
+            throw new NotImplementedException();
+        }
     }
 }
