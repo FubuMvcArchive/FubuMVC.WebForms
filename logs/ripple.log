@@ -1809,3 +1809,38 @@ RippleOperation: FubuMVC.WebForms
           4.) ProcessDirectives           Process directives from nugets                                          
           5.) FixReferences               Fix References                                                          
 
+4/26/2013 3:34:42 PM: [Info] Restoring dependencies for solution FubuMVC.WebForms to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:34:42 PM: [Debug] 
+==================================================================================================================
+RippleOperation: FubuMVC.WebForms
+==================================================================================================================
+     ** Ripple Steps
+          1.) ValidateRepository          Validate FubuMVC.WebForms                                               
+          2.) DownloadMissingNugets       Download missing nugets for FubuMVC.WebForms                            
+          3.) ExplodeDownloadedNugets     Explode nugets at c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+          4.) ProcessDirectives           Process directives from nugets                                          
+          5.) FixReferences               Fix References                                                          
+
+4/26/2013 3:34:43 PM: [Info] HintPath changed:  to ..\packages\Bottles\lib\Bottles.dll
+4/26/2013 3:35:34 PM: [Info] Restoring dependencies for solution FubuMVC.WebForms to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:35:34 PM: [Debug] 
+==================================================================================================================
+RippleOperation: FubuMVC.WebForms
+==================================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.WebForms                            
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+          3.) ProcessDirectives           Process directives from nugets                                          
+          4.) FixReferences               Fix References                                                          
+
+4/26/2013 3:35:46 PM: [Info] Restoring dependencies for solution FubuMVC.WebForms to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:35:46 PM: [Debug] 
+==================================================================================================================
+RippleOperation: FubuMVC.WebForms
+==================================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.WebForms                            
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+          3.) ProcessDirectives           Process directives from nugets                                          
+          4.) FixReferences               Fix References                                                          
+
