@@ -10,7 +10,7 @@ namespace AspNetApplication
         {
             Actions.IncludeClassesSuffixedWithController();
 
-            Routes.HomeIs<ViewController>(x => x.get_webforms_simple_Name(null));
+            Routes.HomeIs<ViewController>(x => x.get_webforms_simple(null));
 
             Import<WebFormsEngine>();
 

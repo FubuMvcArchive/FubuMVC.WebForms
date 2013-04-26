@@ -43,14 +43,14 @@ namespace AspNetApplication.WebForms
 
     public class ViewController
     {
-        public WebFormOutput get_webforms_simple_Name(WebFormInput input)
+        public WebFormOutput get_webforms_simple(WebFormInput input)
         {
             return new WebFormOutput{
                 Text = "My name is " + input.Name
             };
         }
 
-        public WebFormOutput post_webforms_simple_Name(WebFormInput input)
+        public WebFormOutput post_webforms_simple(WebFormInput input)
         {
             return new WebFormOutput
             {
