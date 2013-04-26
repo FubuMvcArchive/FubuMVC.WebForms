@@ -1844,3 +1844,110 @@ RippleOperation: FubuMVC.WebForms
           3.) ProcessDirectives           Process directives from nugets                                          
           4.) FixReferences               Fix References                                                          
 
+4/26/2013 3:36:34 PM: [Info] Restoring dependencies for solution FubuMVC.WebForms to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:36:34 PM: [Debug] 
+==================================================================================================================
+RippleOperation: FubuMVC.WebForms
+==================================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.WebForms                            
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+          3.) ProcessDirectives           Process directives from nugets                                          
+          4.) FixReferences               Fix References                                                          
+
+4/26/2013 3:36:42 PM: [Debug] Deleting c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:36:42 PM: [Info] Restoring dependencies for solution FubuMVC.WebForms to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:36:42 PM: [Debug] 
+==================================================================================================================
+RippleOperation: FubuMVC.WebForms
+==================================================================================================================
+     ** Ripple Steps
+          1.) ValidateRepository          Validate FubuMVC.WebForms                                               
+          2.) DownloadMissingNugets       Download missing nugets for FubuMVC.WebForms                            
+          3.) ExplodeDownloadedNugets     Explode nugets at c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+          4.) ProcessDirectives           Process directives from nugets                                          
+          5.) FixReferences               Fix References                                                          
+
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuMVC.Core.UI,1.0.1.351 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuMVC.OwinHost,1.0.1.1407 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuCore,1.0.0.210 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuMVC.Core.View,1.0.0.383 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuMVC.Katana,1.0.1.1407 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuLocalization,0.9.5.126 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuMVC.Core,1.0.1.1410 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for Bottles,1.0.0.443 from http://nuget.org/api/v2/
+4/26/2013 3:36:43 PM: [Debug] Searching for FubuMVC.StructureMap,1.0.1.1410 from http://nuget.org/api/v2/
+4/26/2013 3:36:44 PM: [Debug] Searching for FubuMVC.TestingHarness,1.0.1.1407 from http://nuget.org/api/v2/
+4/26/2013 3:36:45 PM: [Debug] Searching for FubuTestingSupport,1.0.1.227 from http://nuget.org/api/v2/
+4/26/2013 3:36:45 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.Katana.1.0.1.1407.nupkg
+4/26/2013 3:36:45 PM: [Debug] Searching for HtmlTags,1.1.0.114 from http://nuget.org/api/v2/
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.Core.1.0.1.1410.nupkg
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.TestingHarness.1.0.1.1407.nupkg
+4/26/2013 3:36:46 PM: [Debug] Searching for Owin,1.0 from http://nuget.org/api/v2/
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.StructureMap.1.0.1.1410.nupkg
+4/26/2013 3:36:46 PM: [Debug] Searching for Owin.Extensions,0.6.4 from http://nuget.org/api/v2/
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.Core.View.1.0.0.383.nupkg
+4/26/2013 3:36:46 PM: [Debug] Searching for Owin.Types,0.8.5 from http://nuget.org/api/v2/
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.Core.UI.1.0.1.351.nupkg
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuMVC.OwinHost.1.0.1.1407.nupkg
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\Owin.1.0.0.0.nupkg
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\NUnit.2.5.10.11092.nupkg
+4/26/2013 3:36:46 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\Owin.Types.0.8.5.0.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\Owin.Extensions.0.8.5.0.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\RhinoMocks.3.6.1.0.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\structuremap.2.6.3.0.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuTestingSupport.1.0.1.227.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuLocalization.0.9.5.126.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\structuremap.automocking.2.6.3.0.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\FubuCore.1.0.0.225.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\Bottles.1.0.0.443.nupkg
+4/26/2013 3:36:47 PM: [Debug] Downloading From Cache: C:\Users\rauhr_000\AppData\Roaming\ripple\HtmlTags.1.2.0.150.nupkg
+4/26/2013 3:36:47 PM: [Debug] Exploding Name: FubuMVC.Katana, Version: 1.0.1.1407, IsPreRelease: False
+4/26/2013 3:36:47 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.Katana
+4/26/2013 3:36:47 PM: [Debug] Exploding Name: FubuMVC.Core, Version: 1.0.1.1410, IsPreRelease: False
+4/26/2013 3:36:47 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.Core
+4/26/2013 3:36:47 PM: [Debug] Exploding Name: FubuMVC.TestingHarness, Version: 1.0.1.1407, IsPreRelease: False
+4/26/2013 3:36:47 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.TestingHarness
+4/26/2013 3:36:47 PM: [Debug] Exploding Name: FubuMVC.StructureMap, Version: 1.0.1.1410, IsPreRelease: False
+4/26/2013 3:36:47 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.StructureMap
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: FubuMVC.Core.View, Version: 1.0.0.383, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.Core.View
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: FubuMVC.Core.UI, Version: 1.0.1.351, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.Core.UI
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: FubuMVC.OwinHost, Version: 1.0.1.1407, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuMVC.OwinHost
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: Owin, Version: 1.0.0.0, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\Owin
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: NUnit, Version: 2.5.10.11092, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\NUnit
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: Owin.Types, Version: 0.8.5.0, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\Owin.Types
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: Owin.Extensions, Version: 0.8.5.0, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\Owin.Extensions
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: RhinoMocks, Version: 3.6.1.0, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\RhinoMocks
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: structuremap, Version: 2.6.3.0, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\structuremap
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: FubuTestingSupport, Version: 1.0.1.227, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuTestingSupport
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: FubuLocalization, Version: 0.9.5.126, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuLocalization
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: structuremap.automocking, Version: 2.6.3.0, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\structuremap.automocking
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: FubuCore, Version: 1.0.0.225, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\FubuCore
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: Bottles, Version: 1.0.0.443, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\Bottles
+4/26/2013 3:36:48 PM: [Debug] Exploding Name: HtmlTags, Version: 1.2.0.150, IsPreRelease: False
+4/26/2013 3:36:48 PM: [Info] Exploding to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages\HtmlTags
+4/26/2013 3:36:59 PM: [Info] Restoring dependencies for solution FubuMVC.WebForms to c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+4/26/2013 3:36:59 PM: [Debug] 
+==================================================================================================================
+RippleOperation: FubuMVC.WebForms
+==================================================================================================================
+     ** Ripple Steps
+          1.) DownloadMissingNugets       Download missing nugets for FubuMVC.WebForms                            
+          2.) ExplodeDownloadedNugets     Explode nugets at c:\Users\rauhr_000\fubus\FubuMVC.WebForms\src\packages
+          3.) ProcessDirectives           Process directives from nugets                                          
+          4.) FixReferences               Fix References                                                          
+

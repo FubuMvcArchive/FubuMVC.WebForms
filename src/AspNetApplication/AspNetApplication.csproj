@@ -4,8 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{DC1BCE7A-CA17-423C-81F2-836292C3AF2C}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -15,10 +14,8 @@
     <AssemblyName>AspNetApplication</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
+    <FileUpgradeFlags></FileUpgradeFlags>
+    <UpgradeBackupLocation></UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,20 +42,11 @@
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore\lib\FubuCore.dll</HintPath>
     </Reference>
-    <Reference Include="FubuCore, Version=0.9.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuCore.0.9.9.174\lib\FubuCore.dll</HintPath>
-    </Reference>
     <Reference Include="FubuLocalization">
       <HintPath>..\packages\FubuLocalization\lib\FubuLocalization.dll</HintPath>
     </Reference>
-    <Reference Include="FubuLocalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuLocalization.0.9.5.72\lib\FubuLocalization.dll</HintPath>
-    </Reference>
     <Reference Include="FubuMVC.Core">
       <HintPath>..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Core, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuMVC.References.0.9.8.1100\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core.UI">
       <HintPath>..\packages\FubuMVC.Core.UI\lib\net40\FubuMVC.Core.UI.dll</HintPath>
@@ -69,18 +57,12 @@
     <Reference Include="FubuMVC.StructureMap">
       <HintPath>..\packages\FubuMVC.StructureMap\lib\net40\FubuMVC.StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.StructureMap, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuMVC.References.0.9.8.1100\lib\net40\FubuMVC.StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\packages\HtmlTags\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap\lib\StructureMap.dll</HintPath>
-    </Reference>
-    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.2.6.4.6\lib\net40\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -155,12 +137,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>20125</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl></IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
