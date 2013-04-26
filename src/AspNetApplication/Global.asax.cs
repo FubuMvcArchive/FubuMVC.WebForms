@@ -2,6 +2,7 @@
 using System.Web;
 using FubuMVC.Core;
 using FubuMVC.StructureMap;
+using StructureMap;
 
 namespace AspNetApplication
 {
@@ -11,7 +12,7 @@ namespace AspNetApplication
         {
             FubuApplication
                 .For<AspNetApplicationFubuRegistry>()
-                .StructureMapObjectFactory()
+                .StructureMap(new Container())
                 .Bootstrap();
         }
 
