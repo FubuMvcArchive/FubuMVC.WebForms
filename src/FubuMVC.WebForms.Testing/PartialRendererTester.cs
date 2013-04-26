@@ -67,10 +67,15 @@ namespace FubuMVC.WebForms.Testing
         }
     }
 
-    public class StubActivator : IPageActivator
+    public class StubActivator : IFubuPageActivator
     {
         public void Activate(IFubuPage page)
         {
+        }
+
+        public void Deactivate(IFubuPage page)
+        {
+            
         }
     }
 

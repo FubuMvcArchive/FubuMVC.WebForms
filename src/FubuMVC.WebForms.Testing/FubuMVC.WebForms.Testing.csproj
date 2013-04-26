@@ -34,23 +34,14 @@
     <Reference Include="Bottles">
       <HintPath>..\packages\Bottles\lib\Bottles.dll</HintPath>
     </Reference>
-    <Reference Include="Bottles, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bottles.0.9.1.336\lib\Bottles.dll</HintPath>
-    </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\packages\FubuCore\lib\FubuCore.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuCore, Version=0.9.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuCore.0.9.9.174\lib\FubuCore.dll</HintPath>
     </Reference>
     <Reference Include="FubuLocalization">
       <HintPath>..\packages\FubuLocalization\lib\FubuLocalization.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core">
       <HintPath>..\packages\FubuMVC.Core\lib\net40\FubuMVC.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FubuMVC.Core, Version=0.9.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuMVC.References.0.9.8.1100\lib\net40\FubuMVC.Core.dll</HintPath>
     </Reference>
     <Reference Include="FubuMVC.Core.UI">
       <HintPath>..\packages\FubuMVC.Core.UI\lib\net40\FubuMVC.Core.UI.dll</HintPath>
@@ -61,45 +52,24 @@
     <Reference Include="FubuMVC.StructureMap">
       <HintPath>..\packages\FubuMVC.StructureMap\lib\net40\FubuMVC.StructureMap.dll</HintPath>
     </Reference>
-    <Reference Include="FubuMVC.StructureMap, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuMVC.References.0.9.8.1100\lib\net40\FubuMVC.StructureMap.dll</HintPath>
-    </Reference>
     <Reference Include="FubuTestingSupport">
       <HintPath>..\packages\FubuTestingSupport\lib\FubuTestingSupport.dll</HintPath>
     </Reference>
-    <Reference Include="FubuTestingSupport, Version=0.9.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FubuTestingSupport.0.9.9.174\lib\FubuTestingSupport.dll</HintPath>
-    </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\packages\HtmlTags\lib\4.0\HtmlTags.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlTags, Version=1.1.0.97, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlTags.1.1.0.97\lib\4.0\HtmlTags.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.mocks">
       <HintPath>..\packages\NUnit\lib\nunit.mocks.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.mocks, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.mocks.dll</HintPath>
     </Reference>
     <Reference Include="pnunit.framework">
       <HintPath>..\packages\NUnit\lib\pnunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="pnunit.framework, Version=1.0.4109.34242, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.5.10.11092\lib\pnunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks\lib\net\Rhino.Mocks.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap\lib\StructureMap.dll</HintPath>
@@ -136,7 +106,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewModel4.cs" />
-    <Compile Include="WebFormsEndpointPolicyTester.cs" />
     <Compile Include="WebForms_service_registration_tester.cs" />
     <Compile Include="WebFormViewFacilityTester.cs">
       <SubType>ASPXCodeBehind</SubType>

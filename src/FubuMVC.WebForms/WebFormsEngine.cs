@@ -1,5 +1,6 @@
 using System;
 using FubuMVC.Core;
+using FubuMVC.Core.View;
 
 namespace FubuMVC.WebForms
 {
@@ -7,7 +8,7 @@ namespace FubuMVC.WebForms
     {
         public void Configure(FubuRegistry registry)
         {
-            registry.Views.Facility(new WebFormViewFacility());
+            registry.ViewFacility(new WebFormViewFacility());
 
             registry.Services(x =>
             {

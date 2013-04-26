@@ -1,4 +1,5 @@
 using FubuMVC.Core;
+using FubuMVC.WebForms;
 
 namespace AspNetApplication
 {
@@ -8,7 +9,8 @@ namespace AspNetApplication
         {
             Actions.IncludeClassesSuffixedWithController();
 
-            Views.TryToAttachWithDefaultConventions();
+            Import<WebFormsEngine>();
+
         }
     }
 }

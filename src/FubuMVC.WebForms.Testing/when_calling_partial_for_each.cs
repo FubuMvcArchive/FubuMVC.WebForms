@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using FubuCore;
 using FubuMVC.Core.Runtime;
-using FubuMVC.Core.UI.Configuration;
-using FubuMVC.Core.UI.Tags;
+using FubuMVC.Core.UI.Elements;
 using FubuMVC.Core.View;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -16,7 +15,7 @@ namespace FubuMVC.WebForms.Testing
         private InputModel _model;
         private IPartialRenderer _renderer;
         private IPartialViewTypeRegistry _viewTypeRegistry;
-        private TagGenerator<InputModel> _tags;
+        private IElementGenerator<InputModel> _tags;
 
         [SetUp]
         public void SetUp()
@@ -25,8 +24,8 @@ namespace FubuMVC.WebForms.Testing
             _renderer = MockRepository.GenerateStub<IPartialRenderer>();
             var serviceLocator = MockRepository.GenerateStub<IServiceLocator>();
             var namingConvention = MockRepository.GenerateStub<IElementNamingConvention>();
-            _tags = new TagGenerator<InputModel>(new TagProfileLibrary(), namingConvention,
-                                                 serviceLocator);
+//            _tags = new TagGenerator<InputModel>(new TagProfileLibrary(), namingConvention,
+//                                                 serviceLocator);
             
             _viewTypeRegistry = MockRepository.GenerateStub<IPartialViewTypeRegistry>();
             serviceLocator.Stub(s => s.GetInstance<IPartialViewTypeRegistry>()).Return(_viewTypeRegistry);
@@ -37,7 +36,7 @@ namespace FubuMVC.WebForms.Testing
             _page.Stub(s => s.Get<IFubuRequest>()).Return(inMemoryFubuRequest);
             
             _model = new InputModel{Partials=new List<PartialModel>{new PartialModel()}};
-            _page.Expect(p => p.Get<ITagGenerator<InputModel>>()).Return(_tags);
+            _page.Expect(p => p.Get<IElementGenerator<InputModel>>()).Return(_tags);
             _page.Expect(p => p.Model).Return(_model);
             _page.Expect(p => p.Get<IPartialRenderer>()).Return(_renderer);
             _page.Expect(p => p.ServiceLocator).Return(serviceLocator);

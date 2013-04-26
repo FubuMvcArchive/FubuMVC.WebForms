@@ -2,7 +2,7 @@ using System.Security.Principal;
 using System.Threading;
 using FubuMVC.Core;
 using FubuMVC.Core.Security;
-using FubuMVC.Core.UI.Tags;
+using FubuMVC.Core.UI.Elements;
 using FubuMVC.Core.View;
 using FubuMVC.WebForms.Partials;
 using FubuTestingSupport;
@@ -24,7 +24,7 @@ namespace FubuMVC.WebForms.Testing
         private bool _wasCalled = false;
         private TestModel _model;
         private PartialTestModel _partialModel;
-        private ITagGenerator<TestModel> _tagGenerator;
+        private IElementGenerator<TestModel> _tagGenerator;
         private IEndpointService _endpointService;
 
         [SetUp]
@@ -34,7 +34,7 @@ namespace FubuMVC.WebForms.Testing
             _view = MockRepository.GenerateStub<IFubuPage>();
             _partialView = MockRepository.GenerateStub<IFubuPage>();
             _renderer = MockRepository.GenerateMock<IPartialRenderer>();
-            _tagGenerator = MockRepository.GenerateMock<ITagGenerator<TestModel>>();
+            _tagGenerator = MockRepository.GenerateMock<IElementGenerator<TestModel>>();
             _endpointService = MockRepository.GenerateMock<IEndpointService>();
             _model = new TestModel();
             _partialModel = new PartialTestModel();
@@ -195,75 +195,6 @@ namespace FubuMVC.WebForms.Testing
             _renderer.Expect(r => r.Render((IFubuPage)null, _model, "_blankPartialModelArray")).Return("").IgnoreArguments();
             
             _expression.ForEachOf(m => m.PartialModelArray).ToString();
-        }
-
-        [Test]
-        public void a_call_to_ForEachOf_should_generate_beforePartialTag_and_afterPartialTag()
-        {
-            var model2 = new PartialTestModel();
-            var model3 = new PartialTestModel();
-
-            _model.PartialModelArray = new[] { _partialModel, model2, model3 };
-
-            _tagGenerator.Expect(c => c.BeforePartial(null)).IgnoreArguments().Return(new NoTag());
-
-            _tagGenerator.Expect(c => c.AfterPartial(null)).IgnoreArguments().Return(new NoTag());
-            _expression.ForEachOf(m => m.PartialModelArray).ToString();
-
-            _tagGenerator.VerifyAllExpectations();
-        }
-
-        [Test]
-        public void a_call_to_ForEachOf_should_generate_beforeEachOfPartialTag_and_afterEachOfTag()
-        {
-            var model2 = new PartialTestModel();
-            var model3 = new PartialTestModel();
-
-            _model.PartialModelArray = new[] { _partialModel, model2, model3 };
-
-            _tagGenerator.Expect(c => c.BeforeEachofPartial(null, 0, 3)).Return(new NoTag());
-            _tagGenerator.Expect(c => c.BeforeEachofPartial(null, 1, 3)).Return(new NoTag());
-            _tagGenerator.Expect(c => c.BeforeEachofPartial(null, 2, 3)).Return(new NoTag());
-
-            _tagGenerator.Expect(c => c.AfterEachofPartial(null, 0, 3)).Return(new NoTag());
-            _tagGenerator.Expect(c => c.AfterEachofPartial(null, 1, 3)).Return(new NoTag());
-            _tagGenerator.Expect(c => c.AfterEachofPartial(null, 2, 3)).Return(new NoTag());
-
-            _expression.ForEachOf(m => m.PartialModelArray).ToString();
-
-            _tagGenerator.VerifyAllExpectations();
-        }
-
-        [Test]
-        public void a_call_to_withoutListWrapper_should_not_render_output_before_on_foreeachof()
-        {
-            var model2 = new PartialTestModel();
-            var model3 = new PartialTestModel();
-
-            _model.PartialModelArray = new[] { _partialModel, model2, model3 };
-
-            _tagGenerator.Expect(c => c.AfterPartial(null)).IgnoreArguments().Return(new NoTag());
-
-            _expression.WithoutListWrapper().ForEachOf(m => m.PartialModelArray).ToString();
-
-            _tagGenerator.AssertWasNotCalled(c => c.BeforePartial(null), b => b.IgnoreArguments());
-            _tagGenerator.AssertWasNotCalled(c => c.AfterPartial(null), b => b.IgnoreArguments());
-        }
-
-        [Test]
-        public void a_call_to_withoutItemWrapper_should_not_wrap_the_items()
-        {
-            var model2 = new PartialTestModel();
-            var model3 = new PartialTestModel();
-
-            _model.PartialModelArray = new[] { _partialModel, model2, model3 };
-
-            _tagGenerator.Expect(c => c.AfterPartial(null)).IgnoreArguments().Return(new NoTag());
-
-            _expression.WithoutItemWrapper().ForEachOf(m => m.PartialModelArray).ToString();
-
-            _tagGenerator.AssertWasNotCalled(c => c.BeforeEachofPartial(null, 0, 3), b => b.IgnoreArguments().Repeat.Times(3));
-            _tagGenerator.AssertWasNotCalled(c => c.AfterEachofPartial(null, 0, 3), b => b.IgnoreArguments().Repeat.Times(3));
         }
 
         public class TestModel
