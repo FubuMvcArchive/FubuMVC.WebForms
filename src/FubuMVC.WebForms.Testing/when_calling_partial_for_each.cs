@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using FubuCore;
 using FubuMVC.Core.Runtime;
+using FubuMVC.Core.UI;
 using FubuMVC.Core.UI.Elements;
 using FubuMVC.Core.View;
 using NUnit.Framework;
@@ -34,9 +35,10 @@ namespace FubuMVC.WebForms.Testing
             inMemoryFubuRequest.Set(new InputModel());
 
             _page.Stub(s => s.Get<IFubuRequest>()).Return(inMemoryFubuRequest);
+                 
             
             _model = new InputModel{Partials=new List<PartialModel>{new PartialModel()}};
-            _page.Expect(p => p.Get<IElementGenerator<InputModel>>()).Return(_tags);
+            _page.Expect(p => p.Get<IElementGenerator<InputModel>>()).Return(MockRepository.GenerateMock<IElementGenerator<InputModel>>());;
             _page.Expect(p => p.Model).Return(_model);
             _page.Expect(p => p.Get<IPartialRenderer>()).Return(_renderer);
             _page.Expect(p => p.ServiceLocator).Return(serviceLocator);
