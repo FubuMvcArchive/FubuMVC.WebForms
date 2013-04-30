@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SimpleView.aspx.cs" Inherits="AspNetApplication.WebForms.SimpleView" %>
 <%@ Import Namespace="AspNetApplication.WebForms" %>
 <%@ Import Namespace="FubuMVC.Core.UI" %>
+<%@ Import Namespace="FubuMVC.WebForms" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,5 +16,10 @@
         <%: this.InputFor<WebFormInput>(i => i.Name) %>
         <input type="submit" />
     </form>
+    
+    <ul>
+        <%= this.RenderPartialForEachOf(Model.Cakes).Using<ViewCake>() %>
+    </ul>
+
 </body>
 </html>

@@ -101,6 +101,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebForms\ViewCake.ascx" />
     <Content Include="WebForms\SimpleView.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +111,10 @@
     </Compile>
     <Compile Include="GoHereController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForms\ViewCake.ascx.cs">
+      <DependentUpon>ViewCake.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebForms\SimpleView.aspx.cs">
       <DependentUpon>SimpleView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

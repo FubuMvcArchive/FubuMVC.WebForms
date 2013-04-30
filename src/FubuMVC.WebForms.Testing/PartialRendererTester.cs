@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Web.UI;
+using FubuCore;
 using FubuMVC.Core.Runtime;
 using FubuMVC.Core.View;
 using FubuMVC.Core.View.Activation;
@@ -27,14 +28,14 @@ namespace FubuMVC.WebForms.Testing
         public void should_throw_if_type_is_not_a_control()
         {
             typeof(InvalidOperationException).ShouldBeThrownBy(
-                () => new PartialRenderer(_builder, null, null).CreateControl(typeof(string)));
+                () => new PartialRenderer(_builder, null).CreateControl<object>(null, typeof(string), null));
         }
 
         [Test]
         public void should_throw_if_type_is_not_a_IFubuPage()
         {
             typeof(InvalidOperationException).ShouldBeThrownBy(
-                () => new PartialRenderer(_builder, null, null).CreateControl(typeof(Page)));
+                () => new PartialRenderer(_builder, null).CreateControl<object>(null, typeof(Page), null));
         }
 
 
@@ -44,7 +45,7 @@ namespace FubuMVC.WebForms.Testing
             _builder.Expect(b => b.LoadControlFromVirtualPath("~/TestControl.ascx", typeof(TestControl))).Return(
                 new TestControl());
 
-            new PartialRenderer(_builder, null, new InMemoryFubuRequest()).CreateControl(typeof(TestControl));
+            new PartialRenderer(_builder, new InMemoryFubuRequest()).CreateControl<TestControlViewModel>(null, typeof(TestControl), null);
 
             _builder.VerifyAllExpectations();
         }
@@ -60,22 +61,12 @@ namespace FubuMVC.WebForms.Testing
 
             _request.Set(new TestViewModel());
 
-            new PartialRenderer(_builder, new StubActivator(), new InMemoryFubuRequest())
-                .Render(new TestView(), typeof(TestControl), new TestControlViewModel(), "");
+            var parentView = new TestView();
+            parentView.ServiceLocator = new InMemoryServiceLocator();
+            new PartialRenderer(_builder, new InMemoryFubuRequest())
+                .Render(parentView, typeof(TestControl), new TestControlViewModel(), "");
 
             _builder.VerifyAllExpectations();
-        }
-    }
-
-    public class StubActivator : IFubuPageActivator
-    {
-        public void Activate(IFubuPage page)
-        {
-        }
-
-        public void Deactivate(IFubuPage page)
-        {
-            
         }
     }
 
@@ -101,7 +92,8 @@ namespace FubuMVC.WebForms.Testing
             _executeCatcher = _builder.CaptureArgumentsFor(b => b.ExecuteControl(null, null));
 
             _parentView = new TestView();
-            _renderer = new PartialRenderer(_builder, new StubActivator(), _request);
+            _parentView.ServiceLocator = new InMemoryServiceLocator();
+            _renderer = new PartialRenderer(_builder, _request);
         }
 
         [Test]

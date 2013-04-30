@@ -11,8 +11,11 @@ namespace FubuMVC.WebForms
 {
     public interface IPartialRenderer
     {
-        IFubuPage CreateControl<T>() where T : IFubuPage;
-        IFubuPage CreateControl(Type controlType);
+        IFubuPage CreateControl<TView, TViewModel>(IServiceLocator locator, TViewModel model)
+            where TView : IFubuPage
+            where TViewModel : class;
+
+        IFubuPage CreateControl<TViewModel>(IServiceLocator locator, Type controlType, TViewModel model) where TViewModel : class;
 
         string Render<T>(IFubuPage view, T viewModel, string prefix, int? index = null) where T : class;
         void Render<T>(IFubuPage view, T viewModel, string prefix, TextWriter writer, int? index = null) where T : class;
@@ -25,22 +28,22 @@ namespace FubuMVC.WebForms
     public class PartialRenderer : IPartialRenderer
     {
         private readonly IWebFormsControlBuilder _builder;
-        private readonly IFubuPageActivator _activator;
         private readonly IFubuRequest _request;
 
-        public PartialRenderer(IWebFormsControlBuilder builder, IFubuPageActivator activator, IFubuRequest request)
+        public PartialRenderer(IWebFormsControlBuilder builder, IFubuRequest request)
         {
             _builder = builder;
-            _activator = activator;
             _request = request;
         }
 
-        public IFubuPage CreateControl<VIEW>() where VIEW : IFubuPage
+        public IFubuPage CreateControl<TView, TViewModel>(IServiceLocator locator, TViewModel model)
+            where TView : IFubuPage
+            where TViewModel : class
         {
-            return CreateControl(typeof(VIEW));
+            return CreateControl(locator, typeof(TView), model);
         }
 
-        public IFubuPage CreateControl(Type controlType)
+        public IFubuPage CreateControl<TViewModel>(IServiceLocator locator, Type controlType, TViewModel model) where TViewModel : class
         {
             //TODO: I'm not sure this IF is required any more, I think that's what the
             // second arg to LoadControlFromVirtualPath does. This needs some investigation before
@@ -54,7 +57,10 @@ namespace FubuMVC.WebForms
 
             var virtualPath = controlType.ToVirtualPath();
             var control = _builder.LoadControlFromVirtualPath(virtualPath, controlType);
-            return control as IFubuPage;
+            var controlAsPage = control as IFubuPage<TViewModel>;
+            controlAsPage.ServiceLocator = locator;
+            controlAsPage.Model = model;
+            return controlAsPage;
         }
 
         public string Render<T>(IFubuPage view, T viewModel, string prefix, int? index = null) where T : class
@@ -64,7 +70,7 @@ namespace FubuMVC.WebForms
             return writer.GetStringBuilder().ToString();
         }
 
-        public void Render<T>(IFubuPage view, T viewModel, string prefix, TextWriter writer, int? index = null) where T : class
+        public void Render<TViewModel>(IFubuPage view, TViewModel viewModel, string prefix, TextWriter writer, int? index = null) where TViewModel : class
         {
             var page = new Page();
             page.Controls.Add(view as Control);
@@ -74,8 +80,8 @@ namespace FubuMVC.WebForms
             {
                 shouldClearModel = !_request.Has(viewModel.GetType());
                 _request.Set(viewModel.GetType(), viewModel);
+                (view as IFubuPage<TViewModel>).Model = viewModel;
             }
-            _activator.Activate(view);
 
             setParentPageIfNotAlreadySet(view, page);
 
@@ -96,25 +102,25 @@ namespace FubuMVC.WebForms
             }
         }
 
-        public string Render<T>(IFubuPage parentView, Type controlType, T viewModel, string prefix) where T : class
+        public string Render<TViewModel>(IFubuPage parentView, Type controlType, TViewModel viewModel, string prefix) where TViewModel : class
         {
-            var view = CreateControl(controlType);
+            var view = CreateControl(parentView.ServiceLocator, controlType, viewModel);
 
             setParentPageIfNotAlreadySet(view, (Control)parentView);
 
             return Render(view, viewModel, prefix);
         }
 
-        public string Render<T>(IFubuPage parentPage, IFubuPage partialControl, T viewModel, string prefix) where T : class
+        public string Render<TViewModel>(IFubuPage parentPage, IFubuPage partialControl, TViewModel viewModel, string prefix) where TViewModel : class
         {
             setParentPageIfNotAlreadySet(partialControl, (Control)parentPage);
 
             return Render(partialControl, viewModel, prefix);
         }
 
-        public void Render<T>(IFubuPage parentView, Type controlType, T viewModel, string prefix, TextWriter writer) where T : class
+        public void Render<TViewModel>(IFubuPage parentView, Type controlType, TViewModel viewModel, string prefix, TextWriter writer) where TViewModel : class
         {
-            var view = CreateControl(controlType);
+            var view = CreateControl(parentView.ServiceLocator, controlType, viewModel);
 
             setParentPageIfNotAlreadySet(view, (Control)parentView);
 

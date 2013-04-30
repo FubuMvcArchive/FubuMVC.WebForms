@@ -30,13 +30,14 @@ namespace FubuMVC.WebForms.Partials
         private Accessor _accessor;
         private bool _renderListWrapper = true;
         private bool _renderItemWrapper = true;
-
+        private IServiceLocator _serviceLocator;
 
 
         public RenderPartialExpression(TViewModel model, IFubuPage parentPage, IPartialRenderer renderer, IElementGenerator<TViewModel> tagGenerator, IEndpointService endpointService)
         {
             if (tagGenerator == null) throw new ArgumentNullException("tagGenerator");
 
+            _serviceLocator = parentPage.ServiceLocator;
             _model = model;
             _renderer = renderer;
             _tagGenerator = tagGenerator;
@@ -77,14 +78,14 @@ namespace FubuMVC.WebForms.Partials
         public RenderPartialExpression<TViewModel> Using(Type partialViewType)
         {
             if (partialViewType.IsConcreteTypeOf<IFubuPage>())
-                _partialView = _renderer.CreateControl(partialViewType);
+                _partialView = _renderer.CreateControl(_serviceLocator, partialViewType, _model);
             return this;
         }
 
         public RenderPartialExpression<TViewModel> Using<TPartialView>(Action<TPartialView> optionAction)
             where TPartialView : IFubuPage
         {
-            _partialView = _renderer.CreateControl(typeof(TPartialView));
+            _partialView = _renderer.CreateControl(_serviceLocator, typeof(TPartialView), _model);
 
             if (optionAction != null)
             {
@@ -195,7 +196,7 @@ namespace FubuMVC.WebForms.Partials
             list.Each(m =>
             {
 
-                var output = _renderer.Render<TPartialViewModel>(_partialView, m, _prefix, current);
+                var output = _renderer.Render(_partialView, m, _prefix, current);
                 builder.Append(output);
                 current++;
             });

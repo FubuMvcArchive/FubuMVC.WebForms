@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Collections.Generic;
+using FubuCore;
 
 namespace AspNetApplication.WebForms
 {
@@ -39,6 +40,28 @@ namespace AspNetApplication.WebForms
     public class WebFormOutput
     {
         public string Text { get; set; }
+        public IEnumerable<Cake> Cakes { get; set; }
+    }
+
+    public class Cake
+    {
+        public Cake()
+        {
+        }
+
+        public Cake(string cakeType, string text)
+        {
+            CakeType = cakeType;
+            Text = text;
+        }
+
+        public string CakeType { get; set; }
+        public string Text { get; set; }
+
+        public override string ToString()
+        {
+            return "[{0}] {1}".ToFormat(CakeType, Text);
+        }
     }
 
     public class ViewController
@@ -46,7 +69,8 @@ namespace AspNetApplication.WebForms
         public WebFormOutput get_webforms_simple(WebFormInput input)
         {
             return new WebFormOutput{
-                Text = "My name is " + input.Name
+                Text = "My name is " + input.Name,
+                Cakes = new[]{new Cake("Birthday", "Happy Birthday"), new Cake("Anniversary", "Happy Anniversary")}
             };
         }
 
