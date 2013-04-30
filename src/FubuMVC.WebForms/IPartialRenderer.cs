@@ -58,6 +58,12 @@ namespace FubuMVC.WebForms
             var virtualPath = controlType.ToVirtualPath();
             var control = _builder.LoadControlFromVirtualPath(virtualPath, controlType);
             var controlAsPage = control as IFubuPage<TViewModel>;
+            if (controlAsPage == null && control is IFubuPage)
+            {
+                var pageControl = control as IFubuPage;
+                pageControl.ServiceLocator = locator;
+                return pageControl;
+            }
             controlAsPage.ServiceLocator = locator;
             controlAsPage.Model = model;
             return controlAsPage;
