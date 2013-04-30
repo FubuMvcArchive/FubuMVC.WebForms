@@ -57,16 +57,24 @@ namespace FubuMVC.WebForms
 
             var virtualPath = controlType.ToVirtualPath();
             var control = _builder.LoadControlFromVirtualPath(virtualPath, controlType);
-            var controlAsPage = control as IFubuPage<TViewModel>;
-            if (controlAsPage == null && control is IFubuPage)
-            {
-                var pageControl = control as IFubuPage;
-                pageControl.ServiceLocator = locator;
-                return pageControl;
-            }
-            controlAsPage.ServiceLocator = locator;
-            controlAsPage.Model = model;
+            var controlAsPage = getControlPage(control, model, locator);
             return controlAsPage;
+        }
+
+        private IFubuPage getControlPage<TViewModel>(Control control, TViewModel model, IServiceLocator locator) where TViewModel : class
+        {
+            // Attaching the ServiceLocator to the page for the changes made on WebForms
+            var controlAsPage = control as IFubuPage<TViewModel>;
+            if (controlAsPage != null)
+            {
+                controlAsPage.Model = model;
+                controlAsPage.ServiceLocator = locator;
+                return controlAsPage;
+            }
+
+            var fubuPage = control as IFubuPage;
+            if (fubuPage != null) fubuPage.ServiceLocator = locator;
+            return fubuPage;
         }
 
         public string Render<T>(IFubuPage view, T viewModel, string prefix, int? index = null) where T : class
