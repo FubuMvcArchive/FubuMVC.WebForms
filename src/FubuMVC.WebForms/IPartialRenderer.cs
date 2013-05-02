@@ -94,7 +94,9 @@ namespace FubuMVC.WebForms
             {
                 shouldClearModel = !_request.Has(viewModel.GetType());
                 _request.Set(viewModel.GetType(), viewModel);
-                (view as IFubuPage<TViewModel>).Model = viewModel;
+                var fubuPage = (view as IFubuPage<TViewModel>);
+                if (fubuPage != null)
+                    fubuPage.Model = viewModel;
             }
 
             setParentPageIfNotAlreadySet(view, page);
